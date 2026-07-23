@@ -1,0 +1,42 @@
+// Schema Prisma — PostgreSQL (chạy trên máy local).
+// Mỗi model lưu dạng tài liệu: cột id + cột data (JSON) chứa toàn bộ đối tượng,
+// khớp trực tiếp với kiểu dữ liệu TypeScript ở frontend.
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Brand {
+  id        String   @id
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
+model Task {
+  id        String   @id
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
+model Creator {
+  id        String   @id
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
+model Rule {
+  id        String   @id
+  data      Json
+  updatedAt DateTime @updatedAt
+}
+
+// Cờ hệ thống (VD: đã seed dữ liệu mẫu chưa)
+model Meta {
+  key   String @id
+  value String
+}
